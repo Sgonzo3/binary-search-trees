@@ -84,6 +84,19 @@ class Node {
     }
 
   }
+  depthFirstSearch(){
+    
+  }
+  findMaximunHeight(){
+
+  }
+
+  findHeight(){
+
+  }
+  isBinarySearchTree(){
+
+  }
 
 }
 
