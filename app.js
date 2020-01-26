@@ -1,4 +1,3 @@
-// stack using array
 class Node {
   constructor(item) {
     this.val= item;
@@ -115,3 +114,32 @@ myTree.root.insert(12);
 
 
 console.log(myTree, myTree.root.preOrder(), myTree.root.inOrder(), myTree.root.postOrder(), myTree.root.breadthFirst());
+
+// Alternative BST
+class BST{
+  contructor(val){
+    this.val = val;
+    this.left = null;
+    this.right - null;
+  }
+  insert(val){
+
+  }
+  contains(val){
+
+  }
+  breadthFirstSearch(){
+
+  }
+  inOrderSearch(){
+
+  }
+  preOrderSearch(){
+
+  }
+  postOrder(){
+
+  }
+}
+
+// Alternative BST Tests
