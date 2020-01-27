@@ -123,7 +123,7 @@ class BST{
   }
   insert(item){
     if(this.val === undefined) return this.val = item;
-    (this.val < item)
+    (item > this.val)
       ? (this.right) 
         ? this.right.insert(item)
         : this.right = new BST(item)
