@@ -76,12 +76,11 @@ class Node {
     // }
     // return array;
 
-    while(pointer < array.length){
-      if(pointer.left)array.push(pointer.left);
-      if(pointer.right)array.push(pointer.right);
-      front++;
-    }
-
+    // while(pointer < array.length){
+    //   if(pointer.left)array.push(pointer.left);
+    //   if(pointer.right)array.push(pointer.right);
+    //   front++;
+    // }
   }
   depthFirstSearch(){
     
@@ -117,13 +116,21 @@ console.log(myTree, myTree.root.preOrder(), myTree.root.inOrder(), myTree.root.p
 
 // Alternative BST
 class BST{
-  contructor(val){
-    this.val = val;
+  constructor(item){
+    this.val = item;
     this.left = null;
     this.right - null;
   }
-  insert(val){
-
+  insert(item){
+    if(this.val === undefined) return this.val = item;
+    (this.val < item)
+      ? (this.right) 
+        ? this.right.insert(item)
+        : this.right = new BST(item)
+      : (this.left)
+        ? this.left.insert(item)
+        : this.left = new BST(item)
+    return this;
   }
   contains(val){
 
@@ -143,3 +150,16 @@ class BST{
 }
 
 // Alternative BST Tests
+myBST = new BST();
+console.log(myBST);
+console.log(myBST.insert(21));
+console.log(myBST);
+console.log(myBST.insert(22));
+console.log(myBST.insert(23));
+console.log(myBST.insert(24));
+console.log(myBST);
+console.log(myBST.insert(0));
+console.log(myBST.insert(-11));
+console.log(myBST.insert(-45));
+console.log(myBST);
+
