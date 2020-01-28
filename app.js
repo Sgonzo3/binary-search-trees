@@ -132,8 +132,11 @@ class BST{
         : this.left = new BST(item)
     return this;
   }
-  contains(val){
-
+  contains(item){
+    if(item === this.val ) return true;
+    return item > this.val 
+      ? this.right ? this.right.contains(item) : false
+      : this.left ? this.left.contains(item) : false
   }
   breadthFirstSearch(){
 
@@ -162,4 +165,8 @@ console.log(myBST.insert(0));
 console.log(myBST.insert(-11));
 console.log(myBST.insert(-45));
 console.log(myBST);
+console.log(myBST.contains(22));
+console.log(myBST.contains(22222));
+
+
 
