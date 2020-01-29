@@ -145,9 +145,6 @@ class BST{
     }
     return false;
   }
-  breadthFirstSearch(){
-
-  }
   preOrderSearch(array = []){
     array.push(this.val);
     if(this.left) {
@@ -178,6 +175,18 @@ class BST{
     array.push(this.val);
     return array;
   }
+  breadthFirstSearch(array = [this], pointer = 0, temp){
+    // while (pointer < array.length) {
+    //   if(array[pointer].left){
+    //     array.push(array[pointer].left);
+    //   }
+    //   if(array[pointer].right){
+    //     array.push(array[pointer].right);
+    //   }
+    //   pointer++;
+    // }
+    // return array.map( node => node.val);
+  }
 }
 
 // Alternative BST Tests
@@ -198,5 +207,6 @@ console.log(myBST.contains(22222));
 console.log(myBST.preOrderSearch());
 console.log(myBST.inOrderSearch());
 console.log(myBST.postOrderSearch());
+console.log(myBST.breadthFirstSearch());
 
 
