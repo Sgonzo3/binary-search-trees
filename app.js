@@ -144,10 +144,17 @@ class BST{
   breadthFirstSearch(){
 
   }
-  inOrderSearch(){
-
+  preOrderSearch(array = []){
+    array.push(this.val);
+    if(this.left) {
+      this.left.preOrderSearch(array);
+    }
+    if(this.right) {
+      this.right.preOrderSearch(array);
+    }
+    return array;
   }
-  preOrderSearch(){
+  inOrderSearch(){
 
   }
   postOrder(){
@@ -170,6 +177,7 @@ console.log(myBST.insert(-45));
 console.log(myBST);
 console.log(myBST.contains(22));
 console.log(myBST.contains(22222));
+console.log(myBST.preOrderSearch());
 
 
 
