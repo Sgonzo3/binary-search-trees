@@ -160,11 +160,11 @@ class BST{
   }
   inOrderSearch(array = []){
     if(this.left) {
-      this.left.preOrderSearch(array);
+      this.left.inOrderSearch(array);
     }
     array.push(this.val);
     if(this.right) {
-      this.right.preOrderSearch(array);
+      this.right.inOrderSearch(array);
     }
     return array;
   }
