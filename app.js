@@ -134,9 +134,12 @@ class BST{
   }
   contains(item){
     if(item === this.val ) return true;
-    return item > this.val 
-      ? this.right ? this.right.contains(item) : false
-      : this.left ? this.left.contains(item) : false
+    if(item > this.val){
+      if (this.right) return this.right.contains(item);
+    } else {
+      if (this.left) return this.left.contains(item);
+    }
+    return false;
   }
   breadthFirstSearch(){
 
