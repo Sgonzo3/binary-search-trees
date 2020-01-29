@@ -158,11 +158,25 @@ class BST{
     }
     return array;
   }
-  inOrderSearch(){
-
+  inOrderSearch(array = []){
+    if(this.left) {
+      this.left.preOrderSearch(array);
+    }
+    array.push(this.val);
+    if(this.right) {
+      this.right.preOrderSearch(array);
+    }
+    return array;
   }
-  postOrder(){
-
+  postOrderSearch(array = []){
+    if(this.left) {
+      this.left.postOrderSearch(array);
+    }
+    if(this.right) {
+      this.right.postOrderSearch(array);
+    }
+    array.push(this.val);
+    return array;
   }
 }
 
@@ -182,6 +196,7 @@ console.log(myBST);
 console.log(myBST.contains(22));
 console.log(myBST.contains(22222));
 console.log(myBST.preOrderSearch());
-
+console.log(myBST.inOrderSearch());
+console.log(myBST.postOrderSearch());
 
 
