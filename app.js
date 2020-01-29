@@ -112,7 +112,11 @@ myTree.root.insert(2);
 myTree.root.insert(12);
 
 
-console.log(myTree, myTree.root.preOrder(), myTree.root.inOrder(), myTree.root.postOrder(), myTree.root.breadthFirst());
+console.log(myTree);
+console.log(myTree.root.preOrder());
+console.log(myTree.root.inOrder());
+console.log(myTree.root.postOrder());
+console.log(myTree.root.breadthFirst());
 
 // Alternative BST
 class BST{
