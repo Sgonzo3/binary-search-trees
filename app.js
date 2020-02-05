@@ -1,8 +1,8 @@
 class Node {
   constructor(item) {
-    this.val= item;
-    this.left= null;
-    this.right= null;
+    this.val = item;
+    this.left = null;
+    this.right = null;
   }
   insert(item) {
     if(item > this.val){
@@ -126,7 +126,7 @@ class BST{
     this.right - null;
   }
   insert(item){
-    if(this.val === undefined) return this.val = item;
+    if(this.val === undefined) return this.val = new Node(item);
     (item > this.val)
       ? (this.right) 
         ? this.right.insert(item)
@@ -209,4 +209,90 @@ console.log(myBST.inOrderSearch());
 console.log(myBST.postOrderSearch());
 console.log(myBST.breadthFirstSearch());
 
+/* notes
+tree with n nodes will have max n-1 edges
+
+nodes can only point to child not siblings or their own parent
+
+only single root node
+
+Tree Terminology
+Root = first node of the tree,
+Child = node pointed to by parent in direction away from root
+Sibling = any node on same level of tree
+Leaf = nodes at the end of a branch, have no children
+edge = connection between parent and child
+binary trees = each node has max 2 children
+binary search tree = node values are sorted and ordered  n<parent left, n>parent right
+
+
+
+*/
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  insert = (item, nodeChecked = this.root) => {
+    if (!nodeChecked) return this.root = new Node(item);
+    if(item < nodeChecked.val) {
+      if(nodeChecked.left){
+        nodeChecked = nodeChecked.left;
+        this.insert(val, nodeChecked);
+      } else {
+        nodeChecked.left = new Node(item);
+        return this.root;
+      }
+    } else {
+      if(nodeChecked.right){
+        nodeChecked = nodeChecked.right;
+        this.insert(val, nodeChecked);
+      } else {
+        nodeChecked.right = new Node(item);
+        return this.root;
+      }
+    }
+  }
+
+  // insertWithLoop = (item) => {
+  //   let nodeChecked = this.root;
+
+  //   if (!nodeChecked) return this.root = new Node(item);
+
+  //   while(nodeChecked) {
+  //     if(){
+
+  //     } else {
+
+  //     }
+  //   }
+  // }
+
+  find = (item, nodeChecked = this.root) => {
+    if(!nodeChecked) return false;
+    if(nodeChecked.val === item) return true;
+
+    if(item < nodeChecked.val) {
+      if(nodeChecked.left) {
+       nodeChecked = nodeChecked.left;
+       return this.find(item, nodeChecked);
+      }
+    } else {
+      if(nodeChecked.right) {
+        nodeChecked = nodeChecked.right;
+        return this.find(item, nodeChecked);
+      }
+    }
+
+    return false;
+  }
+}
+
+let myBinarySearchTree = new BinarySearchTree();
+console.log('initialized', myBinarySearchTree); 
+console.log('add 5', myBinarySearchTree.insert(5)); 
+console.log('add 10', myBinarySearchTree.insert(10)); 
+console.log('add 2', myBinarySearchTree.insert(2)); 
+console.log('find 10', myBinarySearchTree.find(10));
+console.log('find 11000', myBinarySearchTree.find(11000));
 
