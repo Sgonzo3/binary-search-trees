@@ -254,19 +254,29 @@ class BinarySearchTree {
     }
   }
 
-  // insertWithLoop = (item) => {
-  //   let nodeChecked = this.root;
+  insertWithLoop = (item) => {
+    let nodeChecked = this.root;
 
-  //   if (!nodeChecked) return this.root = new Node(item);
+    if (!nodeChecked) return this.root = new Node(item);
 
-  //   while(nodeChecked) {
-  //     if(){
-
-  //     } else {
-
-  //     }
-  //   }
-  // }
+    while(nodeChecked) {
+      if(item < nodeChecked){
+        if(nodeChecked.left) {
+          nodeChecked = nodeChecked.left;
+        } else {
+          nodeChecked.left = new Node(item);
+          return this.root;
+        }
+      } else {
+        if(nodeChecked.right) {
+          nodeChecked = nodeChecked.right;
+        } else {
+          nodeChecked.right = new Node(item);
+          return this.root;
+        }
+      }
+    }
+  }
 
   find = (item, nodeChecked = this.root) => {
     if(!nodeChecked) return false;
@@ -295,4 +305,6 @@ console.log('add 10', myBinarySearchTree.insert(10));
 console.log('add 2', myBinarySearchTree.insert(2)); 
 console.log('find 10', myBinarySearchTree.find(10));
 console.log('find 11000', myBinarySearchTree.find(11000));
+console.log('add 100', myBinarySearchTree.insertWithLoop(100));
+console.log('find 100', myBinarySearchTree.find(100));
 
