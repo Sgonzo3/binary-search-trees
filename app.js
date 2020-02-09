@@ -296,6 +296,30 @@ class BinarySearchTree {
 
     return false;
   }
+
+  findWithLoop = (item) => {
+    let nodeChecked = this.root;
+    if(!nodeChecked) return false;
+
+    while(nodeChecked) {
+      if(nodeChecked.val === item) return true;
+
+      if(item < nodeChecked.val){
+        if(nodeChecked.left) {
+          nodeChecked = nodeChecked.left;
+        } else {
+          return false;
+        }
+      } else {
+        if(nodeChecked.right) {
+          nodeChecked = nodeChecked.right;
+        } else {
+          return false;
+        }
+      }
+    }
+
+  }
 }
 
 let myBinarySearchTree = new BinarySearchTree();
@@ -306,5 +330,5 @@ console.log('add 2', myBinarySearchTree.insert(2));
 console.log('find 10', myBinarySearchTree.find(10));
 console.log('find 11000', myBinarySearchTree.find(11000));
 console.log('add 100', myBinarySearchTree.insertWithLoop(100));
-console.log('find 100', myBinarySearchTree.find(100));
-
+console.log('find 100', myBinarySearchTree.findWithLoop(100));
+console.log('find 11000', myBinarySearchTree.findWithLoop(11000));
