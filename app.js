@@ -318,6 +318,23 @@ class BinarySearchTree {
         }
       }
     }
+  }
+
+  preOrder = (array = [], nodeChecked = this.root) => {
+    array.push(nodeChecked.val);
+
+    if(this.left) {
+      nodeChecked = nodeChecked.left.val;
+      return nodeChecked.preOrder(array, nodeChecked);
+    }
+    if(this.right) {
+      nodeChecked = nodeChecked.right.val;
+      return nodeChecked.preOrder(array, nodeChecked);
+    }
+    return array;
+  }
+
+  preOrderWithLoop = () => {
 
   }
 }
@@ -332,3 +349,4 @@ console.log('find 11000', myBinarySearchTree.find(11000));
 console.log('add 100', myBinarySearchTree.insertWithLoop(100));
 console.log('find 100', myBinarySearchTree.findWithLoop(100));
 console.log('find 11000', myBinarySearchTree.findWithLoop(11000));
+console.log('preOrder', myBinarySearchTree.preOrder());
