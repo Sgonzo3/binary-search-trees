@@ -322,13 +322,12 @@ class BinarySearchTree {
 
   preOrder = (array = [], nodeChecked = this.root) => {
     array.push(nodeChecked.val);
-
-    if(this.left) {
-      nodeChecked = nodeChecked.left.val;
+    if(nodeChecked.left) {
+      nodeChecked = nodeChecked.left;
       return nodeChecked.preOrder(array, nodeChecked);
     }
-    if(this.right) {
-      nodeChecked = nodeChecked.right.val;
+    if(nodeChecked.right) {
+      nodeChecked = nodeChecked.right;
       return nodeChecked.preOrder(array, nodeChecked);
     }
     return array;
