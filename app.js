@@ -358,7 +358,15 @@ class BinarySearchTree {
 
   }
 
-  postOrder(array = [], nodeChecked = this.root) {
+  postOrder(answer = [], nodeChecked = this.root) {
+    if(nodeChecked.left) {
+      this.postOrder(answer, nodeChecked.left);
+    }
+    if(nodeChecked.right) {
+      this.postOrder(answer, nodeChecked.right);
+    }
+    answer.push(nodeChecked.val);
+    return answer;
 
   }
 
@@ -379,3 +387,4 @@ console.log('find 100', myBinarySearchTree.findWithLoop(100));
 console.log('find 11000', myBinarySearchTree.findWithLoop(11000));
 console.log('preOrder', myBinarySearchTree.preOrder());
 console.log('preOrder', myBinarySearchTree.inOrder());
+console.log('postOrder', myBinarySearchTree.postOrder());
