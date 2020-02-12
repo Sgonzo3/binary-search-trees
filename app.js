@@ -328,20 +328,34 @@ class BinarySearchTree {
     }
   }
 
-  preOrder = (array = [], nodeChecked = this.root) => {
-    array.push(nodeChecked.val);
+  preOrder(answer = [], nodeChecked = this.root) {
+    answer.push(nodeChecked.val);
     if(nodeChecked.left) {
-      nodeChecked = nodeChecked.left;
-      return nodeChecked.preOrder(array, nodeChecked);
+      this.preOrder(answer, nodeChecked.left);
     }
     if(nodeChecked.right) {
-      nodeChecked = nodeChecked.right;
-      return nodeChecked.preOrder(array, nodeChecked);
+      this.preOrder(answer, nodeChecked.right);
     }
-    return array;
+    return answer;
   }
 
   preOrderWithLoop = () => {
+
+  }
+
+  inOrder(array = [], nodeChecked = this.root) {
+
+  }
+
+  inOrderWithLoop() {
+
+  }
+
+  postOrder(array = [], nodeChecked = this.root) {
+
+  }
+
+  postOrderWithLoop() {
 
   }
 }
