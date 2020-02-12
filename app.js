@@ -343,8 +343,15 @@ class BinarySearchTree {
 
   }
 
-  inOrder(array = [], nodeChecked = this.root) {
-
+  inOrder(answer = [], nodeChecked = this.root) {
+    if(nodeChecked.left) {
+      this.preOrder(answer, nodeChecked.left);
+    }
+    answer.push(nodeChecked.val);
+    if(nodeChecked.right) {
+      this.preOrder(answer, nodeChecked.right);
+    }
+    return answer;
   }
 
   inOrderWithLoop() {
@@ -371,3 +378,4 @@ console.log('add 100', myBinarySearchTree.insertWithLoop(100));
 console.log('find 100', myBinarySearchTree.findWithLoop(100));
 console.log('find 11000', myBinarySearchTree.findWithLoop(11000));
 console.log('preOrder', myBinarySearchTree.preOrder());
+console.log('preOrder', myBinarySearchTree.inOrder());
