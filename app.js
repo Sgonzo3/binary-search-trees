@@ -246,7 +246,7 @@ class BinarySearchTree {
     if(item < nodeChecked.val) {
       if(nodeChecked.left){
         nodeChecked = nodeChecked.left;
-        this.insert(val, nodeChecked);
+        this.insert(item, nodeChecked);
       } else {
         nodeChecked.left = new CleanNode(item);
         return this.root;
@@ -254,7 +254,7 @@ class BinarySearchTree {
     } else {
       if(nodeChecked.right){
         nodeChecked = nodeChecked.right;
-        this.insert(val, nodeChecked);
+        this.insert(item, nodeChecked);
       } else {
         nodeChecked.right = new CleanNode(item);
         return this.root;
@@ -379,7 +379,11 @@ let myBinarySearchTree = new BinarySearchTree();
 console.log('initialized', myBinarySearchTree); 
 console.log('add 5', myBinarySearchTree.insert(5)); 
 console.log('add 10', myBinarySearchTree.insert(10)); 
-console.log('add 2', myBinarySearchTree.insert(2)); 
+console.log('add 2', myBinarySearchTree.insert(2));
+console.log('add 1', myBinarySearchTree.insert(1)); 
+console.log('add 18', myBinarySearchTree.insert(18)); 
+console.log('add 4', myBinarySearchTree.insert(4)); 
+
 console.log('find 10', myBinarySearchTree.find(10));
 console.log('find 11000', myBinarySearchTree.find(11000));
 console.log('add 100', myBinarySearchTree.insertWithLoop(100));
