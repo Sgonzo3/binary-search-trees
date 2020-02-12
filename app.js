@@ -228,19 +228,27 @@ binary search tree = node values are sorted and ordered  n<parent left, n>parent
 
 
 */
+class CleanNode {
+  constructor(item) {
+    this.val = item;
+    this.left = null;
+    this.right = null;
+  }
+}
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
   insert = (item, nodeChecked = this.root) => {
-    if (!nodeChecked) return this.root = new Node(item);
+    if (!nodeChecked) return this.root = new CleanNode(item);
     if(item < nodeChecked.val) {
       if(nodeChecked.left){
         nodeChecked = nodeChecked.left;
         this.insert(val, nodeChecked);
       } else {
-        nodeChecked.left = new Node(item);
+        nodeChecked.left = new CleanNode(item);
         return this.root;
       }
     } else {
@@ -248,7 +256,7 @@ class BinarySearchTree {
         nodeChecked = nodeChecked.right;
         this.insert(val, nodeChecked);
       } else {
-        nodeChecked.right = new Node(item);
+        nodeChecked.right = new CleanNode(item);
         return this.root;
       }
     }
@@ -257,21 +265,21 @@ class BinarySearchTree {
   insertWithLoop = (item) => {
     let nodeChecked = this.root;
 
-    if (!nodeChecked) return this.root = new Node(item);
+    if (!nodeChecked) return this.root = new CleanNode(item);
 
     while(nodeChecked) {
       if(item < nodeChecked){
         if(nodeChecked.left) {
           nodeChecked = nodeChecked.left;
         } else {
-          nodeChecked.left = new Node(item);
+          nodeChecked.left = new CleanNode(item);
           return this.root;
         }
       } else {
         if(nodeChecked.right) {
           nodeChecked = nodeChecked.right;
         } else {
-          nodeChecked.right = new Node(item);
+          nodeChecked.right = new CleanNode(item);
           return this.root;
         }
       }
