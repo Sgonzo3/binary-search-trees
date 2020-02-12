@@ -345,11 +345,11 @@ class BinarySearchTree {
 
   inOrder(answer = [], nodeChecked = this.root) {
     if(nodeChecked.left) {
-      this.preOrder(answer, nodeChecked.left);
+      this.inOrder(answer, nodeChecked.left);
     }
     answer.push(nodeChecked.val);
     if(nodeChecked.right) {
-      this.preOrder(answer, nodeChecked.right);
+      this.inOrder(answer, nodeChecked.right);
     }
     return answer;
   }
@@ -386,5 +386,5 @@ console.log('add 100', myBinarySearchTree.insertWithLoop(100));
 console.log('find 100', myBinarySearchTree.findWithLoop(100));
 console.log('find 11000', myBinarySearchTree.findWithLoop(11000));
 console.log('preOrder', myBinarySearchTree.preOrder());
-console.log('preOrder', myBinarySearchTree.inOrder());
+console.log('inOrder', myBinarySearchTree.inOrder());
 console.log('postOrder', myBinarySearchTree.postOrder());
